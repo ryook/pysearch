@@ -4,7 +4,7 @@ import pytest
 class TestParser:
 
     def test_2gram_parser(self):
-        from parser import Parser, BigramParser
+        from ..parser import Parser, BigramParser
 
         parser = Parser(BigramParser)
         actual = parser.parse('test')
@@ -23,7 +23,7 @@ class TestNgramParser:
         ]
     )
     def test_parse(self, n, text, expected):
-        from parser import NgramParser
+        from ..parser import NgramParser
 
         actual = NgramParser.parse(n, text)
         assert actual == expected
@@ -32,7 +32,7 @@ class TestNgramParser:
 class TestBigramParser:
 
     def test_parse(self):
-        from parser import BigramParser
+        from ..parser import BigramParser
 
         actual = BigramParser.parse('test')
         assert actual == ['te', 'es', 'st']
