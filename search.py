@@ -12,7 +12,6 @@ def search(query, slop=0, parser=BigramParser):
         tokens = parser.parse(query)
         docs = []
         for token in tokens:
-            # print(token)
             keyword = index_collection.find_one({"keyword": token})
             if keyword:
                 docs += keyword['documents']
@@ -20,16 +19,15 @@ def search(query, slop=0, parser=BigramParser):
 
         result = []
         doc_ids = set([d[0] for d in doc_position])
-        print(result)
         for doc_id in doc_ids:
-            positions = [d[1] for d in doc_ids if d[0] == doc_id]
-            if len(positions) - slop == len(tokens):
-                result.append(text_collection.find_one({'_id': ObjectId(doc_id)}))
-        for r in result:
-            print(r)
+            doc = text_collection.find_one({'_id': ObjectId(doc_id)})
+            result.append(doc["text"])
+        return result
 
 
 if __name__ == "__main__":
-    search('東京タワー')
+    result = search('みなとみらい')
+    for r in result:
+        print(r)
 
 
