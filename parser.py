@@ -9,7 +9,6 @@ class Parser:
 
 
 class NgramParser:
-
     @classmethod
     def parse(cls, n, text):
         if len(text) < n:
