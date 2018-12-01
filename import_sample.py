@@ -7,4 +7,3 @@ with open("sample.txt", "r") as f:
     for l in f:
         res = indexer.update_index(l.strip())
         print(res)
-        break
