@@ -1,5 +1,5 @@
 from pymongo import MongoClient
-from parser import BigramParser
+from pysearch.parser import BigramParser
 from bson.objectid import ObjectId
 
 db_client = MongoClient('localhost', 27017)

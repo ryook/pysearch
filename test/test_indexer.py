@@ -1,10 +1,10 @@
 import pytest
-from ..indexer import Indexer
+from pysearch.indexer import Indexer
 
 
 @pytest.fixture
 def indexer():
-    from ..parser import BigramParser
+    from pysearch.parser import BigramParser
     return Indexer(BigramParser)
 
 
